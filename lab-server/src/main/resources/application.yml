@@ -1,0 +1,27 @@
+spring.cloud.nacos.discovery.server-addr: 192.168.1.18:8848
+
+dubbo.scan.base-packages: com.lab.server.service
+dubbo.protocol.name: dubbo
+dubbo.protocol.port: -1
+dubbo.registry.address: spring-cloud://localhost
+
+spring.shardingsphere.datasource.names: master,slave0
+
+spring.shardingsphere.datasource.master.type: com.zaxxer.hikari.HikariDataSource
+spring.shardingsphere.datasource.master.driver-class-name: com.mysql.cj.jdbc.Driver
+spring.shardingsphere.datasource.master.jdbc-url: jdbc:mysql://192.168.1.18:3306/test123
+spring.shardingsphere.datasource.master.username: root
+spring.shardingsphere.datasource.master.password: Aa123456
+
+spring.shardingsphere.datasource.slave0.type: com.zaxxer.hikari.HikariDataSource
+spring.shardingsphere.datasource.slave0.driver-class-name: com.mysql.cj.jdbc.Driver
+spring.shardingsphere.datasource.slave0.jdbc-url: jdbc:mysql://192.168.1.18:3307/test123
+spring.shardingsphere.datasource.slave0.username: root
+spring.shardingsphere.datasource.slave0.password: Aa123456
+
+spring.shardingsphere.masterslave.load-balance-algorithm-type: round_robin
+spring.shardingsphere.masterslave.name: ms
+spring.shardingsphere.masterslave.master-data-source-name: master
+spring.shardingsphere.masterslave.slave-data-source-names: slave0
+
+spring.shardingsphere.props.sql.show: true

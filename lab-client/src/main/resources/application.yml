@@ -1,0 +1,16 @@
+spring.cloud.nacos.discovery.server-addr: 192.168.1.18:8848
+
+dubbo.registry.address: spring-cloud://localhost
+dubbo.cloud.subscribed-services: lab-server
+
+knife4j:
+  basic:
+    username: lab
+    password: Aa123456
+    enable: true
+  enable: true
+  production: false
+
+
+spring.mvc.throw-exception-if-no-handler-found: true
+spring.resources.add-mappings: false

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Lab Web</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="查找单个数据" @click="fineOne" />
+        <hr />
+        <div>{{result}}</div>
+    </div>
+
+<script src="//cdn.staticfile.org/vue/2.6.11/vue.min.js"></script>
+<script src="//cdn.staticfile.org/axios/0.19.2/axios.min.js"></script>
+<script>
+    request = axios.create({
+        baseURL: "http://localhost:9999/client",
+        timeout: 20000 // 请求超时时间
+    });
+
+    new Vue({
+        el: '#app',
+        data: {
+            result: ''
+        },
+        methods: {
+            fineOne() {
+                request({
+                    url: '/findOne/7',method: 'get',data: '',
+                    headers: {
+                        //'content-type': 'application/json;charset=UTF-8',"X-Auth-Token": ''
+                    }
+                }).then(response=>{
+                    this.result = response.data;
+                })
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
